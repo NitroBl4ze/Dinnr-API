@@ -7,26 +7,32 @@
 
 @layer base {
   :root {
-    --background: 0 0% 4%;
-    --foreground: 0 0% 100%;
-    --card: 0 0% 4%;
-    --card-foreground: 0 0% 100%;
-    --popover: 0 0% 4%;
-    --popover-foreground: 0 0% 100%;
-    --primary: 142 84% 58%;
+    --background: 35 10% 98%;
+    --foreground: 0 0% 20%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 20%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 20%;
+    --primary: 33 100% 50%;
     --primary-foreground: 0 0% 100%;
-    --secondary: 0 0% 9%;
-    --secondary-foreground: 0 0% 100%;
-    --muted: 0 0% 9%;
-    --muted-foreground: 0 0% 64%;
-    --accent: 0 0% 9%;
+    --secondary: 36 33% 94%;
+    --secondary-foreground: 0 0% 20%;
+    --muted: 35 12% 95%;
+    --muted-foreground: 0 0% 45%;
+    --accent: 75 60% 45%;
     --accent-foreground: 0 0% 100%;
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
-    --border: 0 0% 12%;
-    --input: 0 0% 12%;
-    --ring: 142 84% 58%;
+    --border: 35 12% 90%;
+    --input: 35 12% 95%;
+    --ring: 33 100% 50%;
     --radius: 0.75rem;
+    
+    /* Dinnr Brand Colors */
+    --orange-warm: 33 100% 50%;
+    --green-fresh: 75 60% 45%;
+    --gray-dark: 0 0% 20%;
+    --cream-soft: 35 10% 98%;
   }
 }
 
@@ -41,34 +47,23 @@
 }
 
 .glass {
-  @apply bg-white/5 backdrop-blur-lg;
-  border: 1px solid transparent;
-  background-clip: padding-box;
+  @apply bg-white/80 backdrop-blur-lg border border-orange-100;
   position: relative;
 }
 
-.glass::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  padding: 1px;
-  background: linear-gradient(225deg, rgba(255,255,255,0.2), rgba(255,255,255,0.05));
-  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
-  mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
-  -webkit-mask-composite: xor;
-  mask-composite: exclude;
-  pointer-events: none;
-}
-
-.glass-hover {
-  @apply transition-all duration-300 hover:bg-white/10;
-}
-
 .text-gradient {
-  @apply bg-clip-text text-transparent bg-gradient-to-r from-primary to-[#22c55e];
+  @apply bg-clip-text text-transparent bg-gradient-to-r from-primary to-accent;
 }
 
 .button-gradient {
-  @apply bg-gradient-to-r from-primary to-[#22c55e] hover:opacity-90 transition-opacity rounded-full;
+  @apply bg-gradient-to-r from-primary to-orange-600 hover:opacity-90 transition-opacity text-white font-medium;
+}
+
+.card-warm {
+  @apply bg-white/95 backdrop-blur-sm border border-orange-100 rounded-xl shadow-lg;
+}
+
+.hero-pattern {
+  background-image: radial-gradient(circle at 20% 50%, rgba(255, 153, 0, 0.1) 0%, transparent 50%),
+                    radial-gradient(circle at 80% 20%, rgba(107, 142, 35, 0.1) 0%, transparent 50%);
 }
